@@ -28,11 +28,36 @@ export const ShopContextProvider = ({ children }) => {
     }));
   };
 
+  const updateCartItemCount = (newAmount, itemId) => {
+    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
+  };
+
+  const checkout = () => {
+    setCartItems(getDefaultCart());
+  };
+
+  const getTotalCartAmount = () => {
+    return Object.entries(cartItems).reduce((totalAmount, [item, quantity]) => {
+      if (quantity > 0) {
+        const itemInfo = PRODUCTS.find((product) => product.id === Number(item));
+        if (itemInfo) {
+          totalAmount += quantity * itemInfo.price;
+        }
+      }
+      return totalAmount;
+    }, 0);
+  };
+  
+
+
   const contextValue = useMemo(
     () => ({
       cartItems,
       addToCart,
       removeFromCart,
+      updateCartItemCount,
+      checkout,
+      getTotalCartAmount
     }),
     [cartItems]
   );
