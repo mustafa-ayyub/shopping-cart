@@ -3,7 +3,7 @@
 This is a fully functional shopping cart application built with React and Node.js, utilizing Stripe for payment processing. The application allows users to browse products, add items to their cart, and securely checkout.
 
 ## Table of Contents
-
+- [Live Demo](#https://shopping-cart-ten-red-21.vercel.app/)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
