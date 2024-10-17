@@ -24,7 +24,7 @@ app.post("/create-checkout-session", async (req, res) => {
         const product = findProductById(item.id);
   
         if (!product) {
-          throw new Error(`Product with ID ${item.id} not found.`);
+          throw new Error(`Product with ID ${item.id} not found in store.`);
         }
   
         return {
